@@ -181,6 +181,15 @@
 
         <p class="font-bold">Total: <span id="cart-total">0.90</span></p>
         
+        <label for="pagamento" class="font-bold mt-4">Slelecione a forma de pagamento:</label><br>
+
+        <select name="pagamento" id="pagamento">
+          <option value="Cartão">Cartão</option>
+          <option value="PIX">PIX</option>
+          <option value="Dinheiro">Dinheiro</option>
+        </select>
+        <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>
+
         <p class="font-bold mt-4">Endereço de entrega</p>
         <input type="text" placeholder="Digite seu endereço" id="address" class="w-full brder-2 p-1 rounded my-1">
         <p class="text-red-500 hidden" id="address-warn">Digite seu endereço completo!</p>

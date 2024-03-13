@@ -8,7 +8,7 @@ const closeModalBtn = document.getElementById("close-modal-btn")
 const cartCounter = document.getElementById("cart-count")
 const addressInput = document.getElementById("address")
 const addressWarn = document.getElementById("address-warn")
-
+const pagamentInput = document.getElementById("pagamento")
 let cart = [];
 
 // Abrir o modal do carrinho
@@ -101,7 +101,8 @@ function updateCartModal(){
         cartItemElement.classList.add("flex", "justify-between", "mb-4", "flex-col")
 
         cartItemElement.innerHTML = `
-        <div class="flex items-center justify-between">
+       
+        <div class="flex items-center justify-between ">
             <div>
             <p class="font-medium">${item.name}</p>
             <p>Qtd: ${item.quantity}</p>
@@ -112,10 +113,11 @@ function updateCartModal(){
                     Remover
                 </buttton>
         </div>
+      
         <p class="text-gray-500 dark:text-gray-400"></p>
         <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
         <p class="text-gray-500 dark:text-gray-400"></p>
-
+        
         `
 
         total += item.price * item.quantity;
@@ -183,6 +185,13 @@ addressInput.addEventListener("input", function(event){
     }
 })
 
+// Pegar a forma de pagamento 
+
+pagamentInput.addEventListener("input", function(event){
+    let inputValue = event.target.value;
+
+   
+})
 // Finalizar o pedido
 
 checkoutBtn.addEventListener("click", function(){
@@ -215,14 +224,14 @@ checkoutBtn.addEventListener("click", function(){
     // Enviar o pedido para API do Whats
     const cartItems = cart.map((item) =>{
         return (
-            `${item.name} Quantidade: (${item.quantity} Preço: R$${item.price}) |`
+            `${item.name} Quantidade: (${item.quantity} Preço: R$${item.price})|`
         )
     }).join("")
 
     const message = encodeURIComponent(cartItems)
     const phone = "35999842822"
 
-    window.open(`https://wa.me/${phone}?text=${message} Endereço: ${addressInput.value}`, "_blank")
+    window.open(`https://wa.me/${phone}?text=${message} Forma de pagamento: ${pagamentInput.value} Endereço: ${addressInput.value}`, "_blank")
 
     cart = [];
     updateCartModal();
