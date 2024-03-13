@@ -57,7 +57,7 @@ function addToCart(name, price){
             destination: "https://github.com/apvarun/toastify-js",
             close: true,
             gravity: "top", // `top` or `bottom`
-            position: "left", // `left`, `center` or `right`
+            position: "center", // `left`, `center` or `right`
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
               background: "#1a8144",
@@ -78,7 +78,7 @@ function addToCart(name, price){
                 destination: "https://github.com/apvarun/toastify-js",
                 close: true,
                 gravity: "top", // `top` or `bottom`
-                position: "left", // `left`, `center` or `right`
+                position: "center", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                 style: {
                   background: "#1a8144",
@@ -112,6 +112,10 @@ function updateCartModal(){
                     Remover
                 </buttton>
         </div>
+        <p class="text-gray-500 dark:text-gray-400"></p>
+        <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+        <p class="text-gray-500 dark:text-gray-400"></p>
+
         `
 
         total += item.price * item.quantity;
@@ -132,7 +136,22 @@ cartItemsContainer.addEventListener("click", function(event){
     if(event.target.classList.contains("remove-from-cart-btn")){
         const name = event.target.getAttribute("data-name")
 
+        Toastify({
+            text: "Item removido do carrinho!",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "center", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "#ecca5c",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+
         removeItemCart(name);
+
     }
 })
 
@@ -176,7 +195,7 @@ checkoutBtn.addEventListener("click", function(){
             destination: "https://github.com/apvarun/toastify-js",
             close: true,
             gravity: "top", // `top` or `bottom`
-            position: "left", // `left`, `center` or `right`
+            position: "center", // `left`, `center` or `right`
             stopOnFocus: true, // Prevents dismissing of toast on hover
             style: {
               background: "#ef4444",
