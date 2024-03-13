@@ -51,12 +51,40 @@ function addToCart(name, price){
         // Se o item já existe, aumenta apenas a quantidade +1
         existingItem.quantity += 1;
         
+        Toastify({
+            text: "Item adiconado ao carrinho!",
+            duration: 3000,
+            destination: "https://github.com/apvarun/toastify-js",
+            close: true,
+            gravity: "top", // `top` or `bottom`
+            position: "left", // `left`, `center` or `right`
+            stopOnFocus: true, // Prevents dismissing of toast on hover
+            style: {
+              background: "#1a8144",
+            },
+            onClick: function(){} // Callback after click
+          }).showToast();
+
         }else{
             cart.push({
                 name,
                 price,
                 quantity: 1,
             })
+
+            Toastify({
+                text: "Item adiconado ao carrinho!",
+                duration: 3000,
+                destination: "https://github.com/apvarun/toastify-js",
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "left", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "#1a8144",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         }
 
         updateCartModal()
